@@ -1,0 +1,55 @@
+{% extends 'systemtemplate.html'%}
+{% block call %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>疫情应急物资调配管理系统</title>
+      {% load static %}
+    <!-- Bootstrap -->
+    <script scr="{% static '/js/vue.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/indexstyle.css' %}">
+    <style>
+        .mater-div{
+            width: 50%;
+            height: 30rem;
+            border: .5rem solid #3c3c3c;
+            margin: 10rem 0 0 25rem;
+            background: #f9f2f4;
+        }
+
+        .mater-ul{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 25rem;
+        }
+
+        .mater-ul li{
+            flex: 1;
+            line-height: 5.7rem;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+{% endblock call %}
+
+{% block content %}
+<div class="mater-div">
+    <ul class="col-sm-7 mater-ul" >
+        <li>您当前选择的物资是：{{ view_obj.supplies_name }}</li>
+        <li>该物资的价格为：{{ view_obj.supplies_price }}</li>
+        <li>
+            <form method="post" novalidate>
+                {% csrf_token %}
+              <div class="form-group">
+                <label for="">请输入需要采购的物资数量</label>
+                <input type="number" class="form-control" name="number" placeholder="请输入">
+              </div>
+                <button class="btn btn-primary" style="font-size: 10px">提交</button>
+            </form>
+        </li>
+    </ul>
+</div>
+{% endblock content %}

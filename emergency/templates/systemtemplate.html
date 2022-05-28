@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+      {% block call %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+        <title>疫情应急物资调配管理系统</title>
+          {% load static %}
+        <!-- Bootstrap -->
+        <script scr="{% static '/js/vue.js' %}"></script>
+        <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static '/css/indexstyle.css' %}">
+        <script src="{% static 'dist/echarts.js' %}"></script>
+      {% endblock call %}
+  </head>
+  <body>
+    <div class="head">
+      <div class="navigation">
+        {% block nav %}
+        <nav class="navbar navbar-inverse">
+        {% endblock nav %}
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div><a class="navbar-brand" href="{% url 'index' %}"><img alt="Brand" src="{% static 'img//logo-3.png' %}" class="index-logo"></a><span style="color: #9d9d9d; font-size: 2rem; font-family: 华文行楷; line-height: 5rem; margin-right: 1rem; overflow: hidden">疫情应急物资调配管理系统</span></div>
+              </div>
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="{% url 'index' %}">主页 <span class="sr-only">(current)</span></a></li>
+                  <li><a href="https://sa.sogou.com/new-weball/page/sgs/epidemic?type_page=VR">疫情信息</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">部门信息 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {% for tem_obj in tem_objs %}
+                            <li><a href="{% url 'department' tem_obj.id %}">{{ tem_obj.department_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'personal_info' per_id%}">个人信息</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+      </div>
+
+      <div class="left-menu">
+        <div class="left-menu-img">
+          <img src="{% static 'img/logo-1.png' %}" class="img-responsive" style="height: 13rem; width: 13rem;" alt="Responsive image">
+        </div>
+          {% for menu in request.session.menu_list %}
+            <div class="left-menu-two-a">
+                <a href="{{ menu.permissions__url }}">
+                    <i class="{{ menu.permissions__icon}}"></i>
+                    <span>{{ menu.permissions__title }}</span>
+                  </a>
+            </div>
+          {% endfor %}
+      </div>
+      <div class="home">
+          {% block content %}
+
+          {% endblock content %}
+      </div>
+    </div>
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="{% static '/js/jquery.js' %}"></script>
+    <script src="{% static '/js/slide.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  </body>
+  {% block js %}
+
+  {% endblock js %}
+</html>

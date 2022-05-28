@@ -1,0 +1,56 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    {% load static %}
+
+    <div class=" container">
+        <h2 style="margin-bottom: 3rem">采购需求</h2>
+        <form class="form-inline" style="margin-top: .5rem; margin-bottom: .5rem">
+          <div class="form-group">
+              <select name="search_field" id="search_field" class="form-control">
+                  <option value="regional_name">地区名</option>
+                  <option value="supplies_name">物资名称</option>
+                  <option value="supplies_type">物资类型</option>
+              </select>
+            <label for="key-word"></label>
+            <input type="text" class="form-control" id="kw" placeholder="请输入你要查询的内容" name="kw">
+          </div>
+          <button type="submit" class="btn btn-danger">搜索</button>
+        </form>
+        <table class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr class="success">
+                    <th>地区名</th>
+                    <th>需求物资名称</th>
+                    <th>需求物资数量</th>
+                    <th>应需求物资单位</th>
+                    <th>需求物资类型</th>
+                    <th>需求部门处理状态</th>
+                    <th>采购部门处理状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for all_obj in supplies_objs %}
+                <tr>
+                    <td>{{ all_obj.regional_name }}</td>
+                    <td>{{ all_obj.supplies_name}}</td>
+                    <td>{{ all_obj.sup_num }}</td>
+                    <td>{{ all_obj.supplies_unit }}</td>
+                    <td>{{ all_obj.supplies_type }}</td>
+                    <td>{{ all_obj.state }}</td>
+                    <td>{{ all_obj.procurement_state }}</td>
+                    <td>
+                        <a href="{% url 'successful' all_obj.id %}"><button type="button" class="btn btn-success" style="font-size: 10px">采购成功</button></a>
+                        <a href="{% url 'failure' all_obj.id %}"><button type="button" class="btn btn-danger" style="font-size: 10px">采购失败</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+        {{ page_html }}
+    </div>
+
+{% endblock content %}

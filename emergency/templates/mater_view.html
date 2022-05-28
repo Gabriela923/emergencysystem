@@ -1,0 +1,35 @@
+{% extends 'systemtemplate.html' %}
+
+{% block call %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>疫情应急物资调配管理系统</title>
+    {% load static %}
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/indexstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/child_pages.css' %}">
+{% endblock call %}
+
+{% block content %}
+    <h1 style="margin: 20px 30px">物资基础信息</h1>
+    <div class="view-supplies-main">
+        <div class="view-supplies-left">
+            <img src="{% static view_obj.supplies_img %}" alt="" class="view-supplies-left-img">
+        </div>
+        <div class="view-supplies-right-mater">
+            <div class="view-supplies-message">
+                <ul>
+                    <li>物资名称：{{ view_obj.supplies_name }}</li>
+                    <li>物资单价：{{ view_obj.supplies_price }}</li>
+                    <li>物资数量：{{ view_obj.supplies_quantity }}</li>
+                    <li>物资供应商：{{ view_obj.supplies_info }}</li>
+                    <li>物资类型：{{ view_obj.supplies_type }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

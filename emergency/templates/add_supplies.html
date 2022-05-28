@@ -1,0 +1,26 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    <h1 style="margin: 20px 30px">添加物资信息</h1>
+    <form class="form-horizontal" style="margin-top: 50px;" method="post" novalidate>
+    {% csrf_token %}
+    {% for filed in supplies_forms %}
+        <div class="form-group">
+            <label for="{{ filed.id_for_label }}" class="col-sm-2 control-label">{{ filed.label }}</label>
+            <div class="col-sm-6">
+                {{ filed }}
+            </div>
+            <div class="col-sm-4">
+                {{ filed.errors.0 }}
+            </div>
+        </div>
+
+    {% endfor %}
+    <button class="btn btn-success" style="float: right; margin-right: 400px">提交信息</button>
+
+    </form>
+    <div style="float: right; position: relative; transform: translate(8.3rem, 4rem)">
+        <a href="{% url 'upload_pictures' %}"><button class="btn btn-danger" >添加图片</button></a>
+    </div>
+
+{% endblock content %}

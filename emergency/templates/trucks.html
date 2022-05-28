@@ -1,0 +1,53 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    {% load static %}
+
+    <div class=" container">
+        <h2 style="margin-bottom: 1rem">车辆信息</h2>
+        <form class="form-inline" style="margin-top: .5rem; margin-bottom: .5rem">
+          <div class="form-group">
+              <select name="search_field" id="search_field" class="form-control">
+                  <option value="truck_number">货车编号</option>
+                  <option value="truck_type">货车类型</option>
+                  <option value="truck_load">货车载重</option>
+                  <option value="truck_driver">货车驾驶员</option>
+                  <option value="truck_state">货车状态</option>
+              </select>
+            <label for="key-word"></label>
+            <input type="text" class="form-control" id="kw" placeholder="请输入你要查询的内容" name="kw">
+          </div>
+          <button type="submit" class="btn btn-danger">搜索</button>
+        </form>
+        <table class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr class="success">
+                    <th>货车编号</th>
+                    <th>货车类型</th>
+                    <th>货车载重</th>
+                    <th>货车驾驶员</th>
+                    <th>货车状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for all_obj in truck_objs %}
+                <tr>
+                    <td>{{ all_obj.truck_number }}</td>
+                    <td>{{ all_obj.truck_type }}</td>
+                    <td>{{ all_obj.truck_load }}</td>
+                    <td>{{ all_obj.truck_driver }}</td>
+                    <td>{{ all_obj.truck_state }}</td>
+                    <td>
+                        <a href="{% url 'change_state' all_obj.id%}"><button type="button" class="btn btn-danger">状态改变</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+        {{ page_html }}
+    </div>
+
+{% endblock content %}

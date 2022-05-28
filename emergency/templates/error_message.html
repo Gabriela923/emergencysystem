@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>错误信息</title>
+    {% load static %}
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            color: red;
+            text-decoration: black;
+
+        }
+        .shell{
+            width: 50rem;
+            height: 25rem;
+            margin: auto;
+            border: 1px solid olive;
+        }
+        .shell-top{
+            height: 7rem;
+            background: olive;
+            display: flex;
+            font-weight: bold;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .shell-bottom{
+            height: 18rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+        }
+        .shell-bottom div:nth-child(1){
+            height: 9rem;
+            line-height: 9rem;
+        }
+        .shell-bottom div:nth-child(2){
+            margin: 1rem;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div class="shell">
+    <div class="shell-top">
+        提示信息！
+    </div>
+    <div class="shell-bottom">
+        {% block title %}
+        <div>该物资库存数量不足，请选择以下操作</div>
+        {% endblock title%}
+        <div>
+            {% block message %}
+            您可以尝试：
+            <span><a href="{% url 'demand' %}">Ⅰ请求需求部门进行物资需求发布</a> </span>
+            <span><a href="{% url 'deploy' %}">Ⅱ返回调配页面</a></span>
+            {% endblock message %}
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static '/js/jquery.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

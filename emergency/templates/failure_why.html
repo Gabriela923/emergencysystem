@@ -1,0 +1,23 @@
+{% extends 'systemtemplate.html' %}
+{% block content %}
+    <div class="col-sm-8" style="margin: 15rem 0 0 20rem">
+        <div class="panel panel-danger">
+          <div class="panel-heading">采购部门</div>
+            <div class="panel-body">
+                清填写采购失败原因
+            </div>
+            <form action="" method="post" novalidate style="margin: 1rem 1rem 2rem 1rem">
+                {% csrf_token %}
+                <div>
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="why" placeholder="请输入">
+                      <span class="input-group-btn">
+                        <button class="btn btn-warning">提交</button>
+                      </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    <div id="root">
+        <h1 style="margin: 5rem">珠山省疫情情况表</h1>
+    </div>
+    <div style="margin: 2rem">
+        <table class="table table-hover table-bordered table-striped">
+            <thead>
+              <tr class="danger">
+                  <th>地区名</th>
+                  <th>地区总人数</th>
+                  <th>地区感染人数</th>
+                  <th>地区感染比例(约)</th>
+              </tr>
+            </thead>
+              {% for reg_obj in reg_objs %}
+                  <tr class="epidemic-information-a">
+                      <td>{{ reg_obj.region_name }}</td>
+                      <td>{{ reg_obj.number }}</td>
+                      <td>{{ reg_obj.infections_number }}</td>
+                      <td>{{ reg_obj.infections_proportion }}</td>
+                  </tr>
+              {% endfor %}
+
+        </table>
+        <div style="width: 400px">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="success">
+                        <th>总人数</th>
+                        <th>总感染人数</th>
+                        <th>感染比例(约)</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>{{ num_count }}</td>
+                    <td>{{ in_number }}</td>
+                    <td>{{ pro_num }}‰</td>
+                </tr>
+            </table>
+        </div>
+        <div style="float: right; margin: 3rem">
+            <a href="{% url 'demand' %}"><button type="button" class="btn btn-danger">制定需求表</button></a>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    <div id="root">
+        <h1 style="margin: 5rem">珠山省各仓库情况表</h1>
+    </div>
+    <div style="margin: 2rem">
+        <table class="table table-hover table-bordered table-striped">
+            <thead>
+              <tr class="danger">
+                  <th>序号</th>
+                  <th>仓库名</th>
+                  <th>仓库地址</th>
+                  <th>仓库最大容量(m³)</th>
+                  <th>仓库剩余容量(m³)</th>
+              </tr>
+            </thead>
+              {% for ware_obj in ware_objs %}
+                  <tr class="epidemic-information-a">
+                      <td>{{ ware_obj.id }}</td>
+                      <td>{{ ware_obj.warehouse_name }}</td>
+                      <td>{{ ware_obj.warehouse_address }}</td>
+                      <td>{{ ware_obj.warehouse_max_capacity }}</td>
+                      <td>{{ ware_obj.warehouse_surplus_capacity }}</td>
+                  </tr>
+              {% endfor %}
+
+        </table>
+        <div style="float: right; margin: 3rem">
+            <a href="{% url 'social_donation_warehouse' %}"><button type="button" class="btn btn-danger">返回</button></a>
+        </div>
+    </div>
+{% endblock content %}

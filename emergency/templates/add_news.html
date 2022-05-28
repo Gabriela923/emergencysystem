@@ -1,0 +1,17 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    <div class="col-sm-8">
+        <h1>添加新闻信息</h1>
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            <div class="input-group" style="margin-top: 30px">
+              <span class="input-group-addon" id="basic-addon1">新闻</span>
+              <input type="text" class="form-control" placeholder="新闻信息" aria-describedby="basic-addon1" name="info">
+            </div>
+            <button class="btn btn-success" style="float: right; margin-top: 30px">提交信息</button>
+        </form>
+
+    </div>
+
+{% endblock content %}

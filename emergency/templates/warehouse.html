@@ -1,0 +1,79 @@
+{% extends 'systemtemplate.html' %}
+
+
+{% block call %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>疫情应急物资调配管理系统</title>
+      {% load static %}
+    <!-- Bootstrap -->
+    <script scr="{% static '/js/vue.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/indexstyle.css' %}">
+    <link rel="stylesheet" href="{% static '/css/warehouse.css' %}">
+{% endblock call %}
+
+
+{% block content %}
+    <div class="ware-main">
+        <div class="ware-son">
+            <img src="{% static 'img/warehouse/珠山中心仓.jpg' %}" alt="">
+            <div>
+                <p>仓库名称：珠山中心仓</p>
+                <p>仓库地址：平岩市汇阳区</p>
+                <p>仓库规模：800亩</p>
+                <p>仓库建立时间：2020年6月19日</p>
+            </div>
+        </div>
+        <div class="ware-son">
+            <img src="{% static 'img/warehouse/平岩仓.jpg' %}" alt="">
+            <div>
+                <p>仓库名称：平岩仓</p>
+                <p>仓库地址：平岩市云山镇建设新区</p>
+                <p>仓库规模：500亩</p>
+                <p>仓库建立时间：2022年3月21日</p>
+            </div>
+        </div>
+        <div class="ware-son">
+            <img src="{% static 'img/warehouse/东义仓.jpg' %}" alt="">
+            <div>
+                <p>仓库名称：东义仓</p>
+                <p>仓库地址：东义市创新区</p>
+                <p>仓库规模：450亩</p>
+                <p>仓库建立时间：2022年1月21日</p>
+            </div>
+        </div>
+        <div class="ware-son">
+            <img src="{% static 'img/warehouse/清州仓.jpg' %}" alt="">
+            <div>
+                <p>仓库名称：清州仓</p>
+                <p>仓库地址：清州市英蒲区</p>
+                <p>仓库规模：530亩</p>
+                <p>仓库建立时间：2022年2月21日</p>
+            </div>
+        </div>
+        <div class="ware-son">
+            <img src="{% static 'img/warehouse/辽山仓.jpg' %}" alt="">
+            <div>
+                <p>仓库名称：辽山仓</p>
+                <p>仓库地址：辽山市石川区</p>
+                <p>仓库规模：600亩</p>
+                <p>仓库建立时间：2022年3月1日</p>
+            </div>
+        </div>
+        <div class="ware-son">
+            <img src="{% static 'img/warehouse/安中仓.jpg' %}" alt="">
+            <div>
+                <p>仓库名称：安中仓</p>
+                <p>仓库地址：安中市红花区</p>
+                <p>仓库规模：400亩</p>
+                <p>仓库建立时间：2022年3月19日</p>
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock content %}

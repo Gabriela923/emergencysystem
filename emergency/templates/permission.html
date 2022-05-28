@@ -1,0 +1,10 @@
+{% extends 'error_message.html' %}
+
+{% block title %}
+    <div>您没有该权限，请选择以下操作</div>
+{% endblock title %}
+
+{% block message %}
+您可以尝试：
+    <span><a href="{% url 'index' %}">返回主页面</a></span>
+{% endblock message %}

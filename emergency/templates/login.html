@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <title>系统登录</title>
+    {% load static %}
+{#    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">#}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+</head>
+<body>
+<div class="wrap">
+    <div class="title">
+        <h1>疫情应急物资调配管理系统</h1>
+    </div>
+    <div class="form">
+        <div class="left">
+            <video autoplay="autoplay" loop="loop" muted="muted" src="{% static 'img/China.mp4' %}">
+            </video>
+        </div>
+        <div class="right">
+            <div class="right-con">
+                <form action="{% url 'login' %}" method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="image"><img src="{% static 'img/logo-1.png' %}" style="width: 80px; height: 80px" alt=""></div>
+                    <h1>登录</h1>
+                    <div class="input-field">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <input type="text" placeholder="姓名" name="uname" autocomplete="off">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-smile-o" aria-hidden="true"></i>
+                        <input type="text" placeholder="工号" name="nub" autocomplete="off">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                        <input type="password" placeholder="密码" name="pw" autocomplete="off">
+                    </div>
+                    <input type="submit" value="登录" class="btn">
+                    <div class="login-a">
+                        <a href="{% url 'register' %}">新成员？快来注册吧</a>
+                        <p>{{ error }}</p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{% static 'jquery.js' %}"></script>
+</html>

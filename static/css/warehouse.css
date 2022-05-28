@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.ware-main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.ware-main div{
+    height: 40rem;
+    flex: 1;
+    margin: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #f2e7c3;
+}
+
+.ware-main div div{
+    border: none;
+    font-size: 16px;
+}
+
+.ware-son img{
+    width: 500px;
+    height: 200px;
+    box-shadow: 10px 10px 8px grey;
+    margin-top: 1rem;
+}

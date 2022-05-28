@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,input{
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrap{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/static/img/logreg.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.title{
+    display: inline-block;
+    float: right;
+    transform: translate(520px, -320px);
+    z-index: 2
+}
+
+.title h1{
+    font-size: 40px;
+    color: #f0f0f0;
+}
+
+.form{
+    position: absolute;
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 45px rgba(0,0,0,0);
+    transform: translateX(-250px);
+}
+
+.left{
+    width: 70%;
+    height: 100%;
+}
+
+video{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.right{
+    width: 30%;
+    height: 600px;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .9;
+}
+
+.right-con{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.image{
+    position: absolute;
+    transform: translate(65px, -100px);
+}
+
+h1{
+    font-size: 2.2rem;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.input-field{
+    max-width: 300px;
+    width: 100%;
+    height: 55px;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0 .4rem;
+}
+
+.input-field i{
+    text-align: center;
+    line-height: 55px;
+    color: black;
+    font-size: 1.1rem;
+
+}
+
+.input-field input{
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: black;
+
+}
+
+.input-field input::placeholder{
+    color: black;
+    font-weight: 500;
+
+}
+
+.btn{
+    width: 150px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 49px;
+    cursor: pointer;
+    background-color: red;
+    color: #ffffff;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: .5s;
+}
+
+.btn:hover{
+    background: #c12e2a;
+}
+
+.login-a p{
+    position: absolute;
+    transform: translate(-10px, 15px);
+}
+
+.login-a a{
+    text-decoration: none;
+    color: #0b5ed7;
+}
+
+.login-a p{
+    color: red;
+    font-size: 14px;
+    font-weight: bold
+}
+
+.register-image{
+    position: absolute;
+    transform: translate(65px, -80px);
+}
+
+.register-errors{
+    position: absolute;
+    transform: translate(35px, 15px);
+}
+
+.register-errors p{
+    color: red;
+    font-size: 14px;
+    font-weight: bold
+}

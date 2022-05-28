@@ -1,0 +1,45 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    {% load static %}
+
+    <div class=" container">
+        <h2 style="margin-bottom: 1rem">运输分配</h2>
+        <form class="form-inline" style="margin-top: .5rem; margin-bottom: .5rem">
+          <div class="form-group">
+              <select name="search_field" id="search_field" class="form-control">
+                  <option value="d_address">调配地区</option>
+                  <option value="d_name">物资名称</option>
+                  <option value="d_type">物资类型</option>
+              </select>
+            <label for="key-word"></label>
+            <input type="text" class="form-control" id="kw" placeholder="请输入你要查询的内容" name="kw">
+          </div>
+          <button type="submit" class="btn btn-danger">搜索</button>
+        </form>
+        <table class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr class="success">
+                    <th>调配地区</th>
+                    <th>物资名称</th>
+                    <th>调配数量</th>
+                    <th>物资类型</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for all_obj in supplies_objs %}
+                <tr>
+                    <td>{{ all_obj.d_address }}</td>
+                    <td>{{ all_obj.d_name }}</td>
+                    <td>{{ all_obj.d_number }}</td>
+                    <td>{{ all_obj.d_type }}</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+        {{ page_html }}
+    </div>
+
+{% endblock content %}

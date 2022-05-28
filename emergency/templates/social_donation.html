@@ -1,0 +1,26 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    <h1 style="margin: 20px 30px">接受社会捐赠合格物资</h1>
+    <form class="form-horizontal" style="margin-top: 50px;" method="post">
+    {% csrf_token %}
+    {% for filed in supplies_forms %}
+        <div class="form-group">
+            <label for="{{ filed.id_for_label }}" class="col-sm-2 control-label">{{ filed.label }}</label>
+            <div class="col-sm-6">
+                {{ filed }}
+            </div>
+
+        </div>
+
+    {% endfor %}
+    <button class="btn btn-success" style="float: right; margin-right: 45rem">提交信息</button>
+
+    </form>
+    <a href="{% url 'social_donation_warehouse' %}">
+        <button class="btn btn-primary" style="position: relative; transform: translate(10rem, 5rem); float: right">查看社会捐赠物资库</button>
+    </a>
+
+
+
+{% endblock content %}

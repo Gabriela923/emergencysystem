@@ -1,0 +1,15 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    <div style="display: flex; justify-content: center; margin-top: 3rem">
+        <h1>{{ dep_objs.department_name }}</h1>
+    </div>
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 5rem">
+        <div style="width: 1000px; font-size: 16px">
+            {{ dep_objs.department_message }}
+        </div>
+
+    </div>
+
+
+{% endblock content %}

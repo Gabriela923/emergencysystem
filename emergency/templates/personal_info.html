@@ -1,0 +1,34 @@
+{% extends 'systemtemplate.html' %}
+{% block call %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>疫情应急物资调配管理系统</title>
+      {% load static %}
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/indexstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/per_mess.css' %}">
+{% endblock call %}
+
+{% block content %}
+
+    <div class="head-portrait">
+        <img src="{% static '/img/头像.jpg' %}" alt="">
+    </div>
+
+    <div>
+        <ul class="information">
+            <li>姓名：{{ per_objs.det_name }}</li>
+            <li>性别：{{ per_objs.det_set }}</li>
+            <li>年龄：{{ per_objs.det_age }}</li>
+            <li>工号：{{ per_objs.det_number }}</li>
+            <li>住址：{{ per_objs.det_address }}</li>
+            <li>电话：{{ per_objs.det_ph }}</li>
+            <li>部门：{{ per_objs.department.department_name }}</li>
+        </ul>
+    </div>
+    <a href="{% url 'edit_per' per_id%}"><button type="button" class="btn btn-primary location">修改个人信息</button></a>
+
+{% endblock content %}

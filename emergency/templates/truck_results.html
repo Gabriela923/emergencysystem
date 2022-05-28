@@ -1,0 +1,50 @@
+{% extends 'systemtemplate.html' %}
+
+{% block content %}
+    {% load static %}
+
+    <div class=" container">
+        <h2 style="margin-bottom: 1rem">运输部门费用报销结果</h2>
+        <form class="form-inline" style="margin-top: .5rem; margin-bottom: .5rem">
+          <div class="form-group">
+              <select name="search_field" id="search_field" class="form-control">
+                  <option value="cause">报销原因</option>
+                  <option value="status">报销结果</option>
+              </select>
+            <label for="key-word"></label>
+            <input type="text" class="form-control" id="kw" placeholder="请输入你要查询的内容" name="kw">
+          </div>
+          <button type="submit" class="btn btn-danger">搜索</button>
+        </form>
+        <table class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr class="success">
+                    <th>报销费用</th>
+                    <th>报销原因</th>
+                    <th>是否上传费用单据</th>
+                    <th>报销结果</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for all_obj in truck_objs %}
+                <tr>
+                    <td>{{ all_obj.cost }}</td>
+                    <td>{{ all_obj.cause }}</td>
+                    {% if all_obj.image_name %}
+                        <td>是</td>
+                    {% else  %}
+                        <td>否</td>
+                    {% endif %}
+                    <td>{{ all_obj.status }}</td>
+                    <td>{{ all_obj.remark }}</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+        {{ page_html }}
+    </div>
+
+{% endblock content %}
